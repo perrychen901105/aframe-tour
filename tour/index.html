@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/aframe-layout-component@4.2/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
     <script src="index.js"></script>
+    <script src="JS/set-image.js"></script>
     <script src="JS/EventHandler.js"></script>
     
   </head>
@@ -22,30 +23,29 @@
         <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
         <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-        <script id="plane" type="text/html">
-          <a-entity class="link" geometry="primitive: plane; height: 1; width: 1"
-                material="shader: flat; src: ${thumb}"></a-entity>
-        </script>
+
         <script id="link" type="text/html">
           <a-entity class="link"
             geometry="primitive: plane; height: 1; width: 1"
             material="shader: flat; src: ${thumb}"
+            set-image="on: click; target: #image-360; src: ${src}"
             ></a-entity>
         </script>
       </a-assets>
 
-      <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 -1 -4" event-set__makevisible="_event: mouseenter; visible: true" event-set__makedisable="_event: mouseleave; visible: false">
-        <a-entity template="src: #plane" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #plane" data-thumb="#cubes-thumb"></a-entity>
-        <a-entity template="src: #plane" data-thumb="#sechelt-thumb"></a-entity>
+      <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 0 -4" visible="false">
+        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
-
-      <a-plane class="link" id="menu" color="#CCC" height="0.5" width="0.5" position="-2 0 -2" menuVisible="eventN: 'mouseenter'" hello-world>
-        <a-text value="+" align="center"></a-text>
+<!-- hello__mouseleave="event: mouseleave; message: false" -->
+      <a-plane class="link" id="menu" color="#CCC" height="0.5" width="0.5" position="0 0 0" hello__mouseenter="event: mouseenter; message: true"
+       >
+        <a-text value="+" align="center" ></a-text>
       </a-plane>
 
       <!-- Background sky. -->
-      <a-sky radius="30" src="#FFF"></a-sky>
+      <a-sky id="image-360" radius="10" src="#city"></a-sky>
       
       <!--Tracked controls. -->
       <a-entity hand-controls="hand: left"></a-entity>

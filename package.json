@@ -1,0 +1,26 @@
+{
+  "name": "tour",
+  "description": "Tour.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server --port=7000",
+    "deploy": "ghpages"
+  },
+  "devDependencies": {
+    "ghpages": "0.0.3",
+    "live-server": "^1.2.0"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-example",
+    "aframe-boilerplate",
+    "aframe-scene",
+    "webvr",
+    "vr"
+  ],
+  "dependencies": {
+    "aframe-layout-component": "^4.3.1",
+    "aframe-template-component": "^3.2.1"
+  }
+}

@@ -31,6 +31,36 @@ AFRAME.registerComponent('hello', {
   }
 });
 
+AFRAME.registerComponent('changescene', {
+  schema: {
+    event: {type: 'string', default: ''},
+    linkto: {type: 'string', default: ''}
+  },
+
+  multiple: true,
+
+  init: function () {
+    var self = this;
+  }, 
+
+  update: function () {
+    var data = this.data;
+    var el = this.el;
+    console.log(data.event);
+    if (data.event) {
+      el.addEventListener(data.event, function () {
+        console.log("click successful");
+        // window.location.href = "../singlePage.html";
+        // window.history.replaceState({}, "page 2", "http://127.0.0.1:7000/singlePage.html")
+        document.querySelector('navigator').navigate('destination.html');
+
+      });
+
+      // console.log(window.location);
+    }
+  }
+});
+
 AFRAME.registerComponent('hello-world', {
   schema: {
   },

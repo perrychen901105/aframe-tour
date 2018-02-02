@@ -23,6 +23,7 @@
         <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
         <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <img id="homeThumbnail" src="assets/BatmanvSuperman.jpg" alt="">
 
         <script id="link" type="text/html">
           <a-entity class="link"
@@ -32,6 +33,12 @@
             ></a-entity>
         </script>
       </a-assets>
+      
+      <a-box class="link" id="changeView" position="2 0 2" changescene__click="event: click; linkto: page">
+        
+      </a-box>
+      
+      <a-entity id="navigator" link="href: singlePage.html; title: SinglePage; image: #homeThumbnail" position="-5 0 -3"></a-entity>
 
       <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 0 -4" visible="false">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>

@@ -52,7 +52,7 @@ AFRAME.registerComponent('changescene', {
         console.log("click successful");
         // window.location.href = "../singlePage.html";
         // window.history.replaceState({}, "page 2", "http://127.0.0.1:7000/singlePage.html")
-        document.querySelector('navigator').navigate('destination.html');
+        document.querySelector('#navigator').navigate('../singlePage.html');
 
       });
 
